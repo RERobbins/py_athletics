@@ -109,4 +109,25 @@ mask = [
 
 df[mask] = df[mask].round(2).convert_dtypes().replace(0.0, pd.NA)
 
-df.to_pickle("activities.pkl")
+# Tennis isn't well integrated into Garmin, so we will augment things here.
+# If the name of an activity contains 'tennis' assign it sportType 'TENNIS'
+
+mask = df.name.str.lower().str.contains('tennis')
+df.loc[mask, 'sportType'] = "TENNIS"
+
+# Some cycling activities are misclassified as generic, reclassify these
+
+mask = df.name.str.lower().str.contains("cycling")
+df.loc[mask, 'sportType'] = "CYCLING"
+
+# Some running activities are misclassified as generic, reclassify these
+
+mask = df.name.str.lower().str.contains("running")
+df.loc[mask, 'sportType'] = "RUNNING"
+
+# If the name of an activity contains 'walking' assign it sportType 'WALKING'
+
+mask = df.name.str.lower().str.contains("walking")
+df.loc[mask, 'sportType'] = "WALKING"
+
+df.to_pickle("activities.pkl.gz", compression='gzip')
