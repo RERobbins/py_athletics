@@ -19,6 +19,7 @@ raw_df = pd.concat([raw_df_0, raw_df_1], join="outer", ignore_index=True)
 # Derive timestamp objects to use as index.
 
 raw_df = raw_df.set_index(pd.to_datetime(raw_df["startTimeLocal"], unit="ms"))
+raw_df.index.name = "timeStamp"
 
 # Filter columns to retain.
 
