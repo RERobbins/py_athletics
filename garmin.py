@@ -1,5 +1,4 @@
 import json
-from numpy import NaN
 import pandas as pd
 
 garmin_directory = "/home/rerobbins/garmin_data/DI_CONNECT/DI-Connect-Fitness"
@@ -16,15 +15,16 @@ df_0 = pd.json_normalize(data_0, record_path="summarizedActivitiesExport")
 df_1 = pd.json_normalize(data_1, record_path="summarizedActivitiesExport")
 
 df = pd.concat([df_0, df_1], join="outer", ignore_index=True)
-df = df.set_index(pd.to_datetime(df["startTimeLocal"], unit="ms"))
+raw_df = df.set_index(pd.to_datetime(df["startTimeLocal"], unit="ms"))
 
 # We will derive avgPaceMPM later, but create a spot for it here.
 
-df['avgPaceMPM'] = NaN
+df = raw_df.copy()
+df['avgPaceMPM'] = pd.NA
 
-available_columns = df.columns
+# Filter columns to retain.
 
-of_interest = [
+mask = [
     "activityId",
     "name",
     "activityType",
@@ -35,7 +35,6 @@ of_interest = [
     "avgHr",
     "maxHr",
     "calories",
-    "bmrCalories",
     "distance",
     "avgSpeed",
     "maxSpeed",
@@ -43,7 +42,7 @@ of_interest = [
     "maxRunCadence",
     "avgBikeCadence",
     "maxBikeCadence",
-    "avgPower",   
+    "avgPower",
     "normPower",
     "steps",
     "trainingEffectLabel",
@@ -54,15 +53,29 @@ of_interest = [
     "vigorousIntensityMinutes",
 ]
 
-df = df[of_interest]
+df = df[mask]
+
+# Filter columns to round to 0 and convert to nullable integers with NA for 0
+
+mask = [
+    "movingDuration",
+    "avgHr",
+    "maxHr",
+    "calories",
+    "maxRunCadence",
+    "avgBikeCadence",
+    "maxBikeCadence",
+    "avgPower",
+    "normPower",
+    "steps",
+]
+
+df[mask] = df[mask].round(0).convert_dtypes().replace(0, pd.NA)
+
 
 df.duration = pd.to_timedelta(df.duration, unit="ms")
 df.elapsedDuration = pd.to_timedelta(df.elapsedDuration, unit="ms")
 df.movingDuration = pd.to_timedelta(df.movingDuration, unit="ms")
-df.avgHr = df.avgHr.round(0).astype("Int16")
-df.maxHr = df.maxHr.round(0).astype("Int16")
-df.calories = df.calories.round(0).astype("Int16")
-df.bmrCalories = df.bmrCalories.round(0).astype("Int16")
 
 # Distance seems to be recorded in centimeters.
 # One mile has 160934.4 centimeters
@@ -82,3 +95,13 @@ df.rename(columns={"avgSpeed": "avgSpeedMPH", "maxSpeed": "maxSpeedMPH"},
 
 mask = df.avgSpeedMPH > 0
 df.loc[mask, 'avgPaceMPM'] = 60 / df.avgSpeedMPH
+
+# Filter columns to round to two decimals and replace 0 with NA
+mask = [
+    "distanceMiles",
+    "avgSpeedMPH",
+    "maxSpeedMPH",
+    "avgPaceMPM",
+]
+
+df[mask] = df[mask].round(2).convert_dtypes().replace(0.0, pd.NA)
