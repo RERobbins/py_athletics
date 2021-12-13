@@ -1,11 +1,10 @@
 import json
-
+from numpy import NaN
 import pandas as pd
 
 garmin_directory = "/home/rerobbins/garmin_data/DI_CONNECT/DI-Connect-Fitness"
 json_file_0 = garmin_directory + "/rerobbins_0_summarizedActivities.json"
 json_file_1 = garmin_directory + "/rerobbins_1001_summarizedActivities.json"
-
 
 with open(json_file_0) as f:
     data_0 = json.load(f)
@@ -18,6 +17,10 @@ df_1 = pd.json_normalize(data_1, record_path="summarizedActivitiesExport")
 
 df = pd.concat([df_0, df_1], join="outer", ignore_index=True)
 df = df.set_index(pd.to_datetime(df["startTimeLocal"], unit="ms"))
+
+# We will derive avgPaceMPM later, but create a spot for it here.
+
+df['avgPaceMPM'] = NaN
 
 available_columns = df.columns
 
@@ -36,6 +39,7 @@ of_interest = [
     "distance",
     "avgSpeed",
     "maxSpeed",
+    "avgPaceMPM",
     "avgPower",
     "avgBikeCadence",
     "maxBikeCadence",
@@ -49,6 +53,7 @@ of_interest = [
     "moderateIntensityMinutes",
     "vigorousIntensityMinutes",
 ]
+
 df = df[of_interest]
 
 df.duration = pd.to_timedelta(df.duration, unit="ms")
@@ -73,6 +78,7 @@ df.maxSpeed = df.maxSpeed * 22.369363
 df.rename(columns={"avgSpeed": "avgSpeedMPH", "maxSpeed": "maxSpeedMPH"},
           inplace=True)
 
-# Pace in minutes per mile is 60/MPH
+# Pace in minutes per mile is 60/MPH, only set it where avgSpeedMPH > 0
 
-df['avgPaceMPM'] = 60 / df.avgSpeedMPH
+mask = df.avgSpeedMPH > 0
+df.loc[mask, 'avgPaceMPM'] = 60 / df.avgSpeedMPH
