@@ -52,4 +52,8 @@ df.weightPounds = df.weightPounds / 453.59237
 df.boneMassPounds = df.boneMassPounds / 453.59237
 df.muscleMassPounds = df.muscleMassPounds / 453.59237
 
+# Round all the numbers (all of which are floats) to two decimal places
+
+df = df.round(2)
+
 df.to_pickle("weight.pkl.gz", compression='gzip')
