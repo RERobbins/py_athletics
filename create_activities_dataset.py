@@ -131,4 +131,9 @@ df.loc[mask, 'sportType'] = "RUNNING"
 mask = df.name.str.lower().str.contains("walking")
 df.loc[mask, 'sportType'] = "WALKING"
 
+# Clean up some rows where the Garmin dataset indicates an INVALID sportType
+
+mask = (df.sportType == "INVALID") & (df.name.str.contains("Flexibility"))
+df.loc[mask, 'sportType'] = "GENERIC"
+
 df.to_pickle("activities.pkl.gz", compression='gzip')
