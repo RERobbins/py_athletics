@@ -136,4 +136,5 @@ df.loc[mask, 'sportType'] = "WALKING"
 mask = (df.sportType == "INVALID") & (df.name.str.contains("Flexibility"))
 df.loc[mask, 'sportType'] = "GENERIC"
 
+df = df.sort_index()
 df.to_pickle("activities.pkl.gz", compression='gzip')
