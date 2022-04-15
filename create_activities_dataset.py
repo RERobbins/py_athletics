@@ -1,7 +1,7 @@
 import json
 import pandas as pd
 
-json_directory = "/home/rerobbins/garmin_data/DI_CONNECT/DI-Connect-Fitness"
+json_directory = "/Users/rerobbins/garmin_data/DI_CONNECT/DI-Connect-Fitness"
 json_file_0 = json_directory + "/rerobbins_0_summarizedActivities.json"
 json_file_1 = json_directory + "/rerobbins_1001_summarizedActivities.json"
 
