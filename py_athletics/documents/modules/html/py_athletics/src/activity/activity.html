@@ -1,0 +1,1622 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>py_athletics.src.activity.activity API documentation</title>
+<meta name="description" content="This is the py_athletics activity module." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>py_athletics.src.activity.activity</code></h1>
+</header>
+<section id="section-intro">
+<p>This is the py_athletics activity module.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;This is the py_athletics activity module.&#34;&#34;&#34;
+
+import datetime
+from decimal import Decimal
+from collections import Counter
+from helpers.helpers import parse_date
+
+
+class Activity:
+    &#34;&#34;&#34;py_athletics Activity class.&#34;&#34;&#34;
+
+    # Activities can either be indoor or outdoor.  While the venue attribute
+    # can be set manually, it will more often be derived as part of a subclass
+    # instantiation process.  Venues are not yet recognized.
+
+    venue_type_set = {&#34;indoor&#34;, &#34;outdoor&#34;}
+
+    def __init__(
+        self, start: datetime.datetime, duration: datetime.timedelta, **kwargs
+    ):
+        &#34;&#34;&#34;Create an Activity.
+
+        This method requires start and duration arguments and will accept
+        keyword arguments for all other attributes.  All Activity subclasses
+        call it after they have removed subclass specific keyword arguments.
+        Surplus keyword arguments are tolerated and ignored.  Venues are
+        currently accepted by not used.
+        &#34;&#34;&#34;
+
+        # The overwhelming bulk of the init method is to do type and value
+        # checking.  Because of the rich set of optional attributes this code
+        # relies on **kwargs.  It looks for specific keywords and ignores
+        # everything else.  This is done, in part, to permit subclasses to add
+        # attributes and not require them to strip related keywords in advance
+        # of calling this methods, and in part, for convenience.
+
+        if not isinstance(start, datetime.datetime):
+            raise TypeError(&#34;start must be a datetime&#34;)
+
+        if not isinstance(duration, datetime.timedelta):
+            raise TypeError(&#34;duration must be a timedelta object&#34;)
+
+        # Handle optional arguments from argument dictionary.
+
+        description = kwargs.pop(&#34;description&#34;, None)
+        if description and not isinstance(description, str):
+            raise TypeError(&#34;description must be a string&#34;)
+
+        calories = kwargs.pop(&#34;calories&#34;, None)
+        if calories and not isinstance(calories, int):
+            raise TypeError(&#34;calories must be an integer&#34;)
+        if calories and calories &lt;= 0:
+            raise ValueError(&#34;calories must be positive&#34;)
+
+        maximum_heart_rate = kwargs.pop(&#34;maximum_heart_rate&#34;, None)
+        if maximum_heart_rate and not isinstance(maximum_heart_rate, int):
+            raise TypeError(&#34;maximum heart rate must be an integer&#34;)
+        if maximum_heart_rate and maximum_heart_rate &lt;= 0:
+            raise ValueError(&#34;maximum heart rate must be positive&#34;)
+
+        average_heart_rate = kwargs.pop(&#34;average_heart_rate&#34;, None)
+        if average_heart_rate and not isinstance(average_heart_rate, int):
+            raise TypeError(&#34;average heart rate must be an integer&#34;)
+        if average_heart_rate and average_heart_rate &lt;= 0:
+            raise ValueError(&#34;average heart rate must be positive&#34;)
+
+        venue = kwargs.pop(&#34;venue&#34;, None)
+        if venue and not isinstance(venue, str):
+            raise TypeError(&#34;venue must be a string&#34;)
+
+        venue_type = kwargs.pop(&#34;venue_type&#34;, None)
+        if venue_type and not isinstance(venue_type, str):
+            raise TypeError(&#34;venue must be a string&#34;)
+        if venue_type and venue_type not in Activity.venue_type_set:
+            raise ValueError(&#34;invalid venue type&#34;)
+
+        garmin_activity_type = kwargs.pop(&#34;garmin_activity_type&#34;, None)
+        if garmin_activity_type and not isinstance(garmin_activity_type, str):
+            raise TypeError(&#34;garmin activity type must be a string&#34;)
+
+        self.start = start
+        self.duration = duration
+        self.description = description
+        self.calories = calories
+        self.maximum_heart_rate = maximum_heart_rate
+        self.average_heart_rate = average_heart_rate
+        self.venue = venue
+        self.venue_type = venue_type
+        self.__garmin_activity_type = garmin_activity_type
+
+    @property
+    def garmin_activity_type(self) -&gt; str:
+        &#34;&#34;&#34;Get the Garmin activity type string used to derive the Activity
+        subclass for Activities read from a Garmin activity file.&#34;&#34;&#34;
+
+        return self.__garmin_activity_type
+
+    def __str__(self) -&gt; str:
+
+        # The __name__ attribute of the class object is a convenient
+        # was to get informtion about an instance.  We use it here to
+        # add the class or subclass name, as the case may be,
+        # in the return string.
+
+        class_str = type(self).__name__
+        start_str = self.start.strftime(&#34;%Y-%m-%d at %H:%M&#34;)
+        duration_str = str(self.duration)
+        return f&#34;[{class_str} on {start_str} for {duration_str}]&#34;
+
+    def __repr__(self) -&gt; str:
+
+        # The __repr__ method serves as the foundation for the py_athletics
+        # activity reporting system.  Subclasses that add attributes to be
+        # reported can call this method for the bulk of the string and modify
+        # it as need be for subclass purposes.
+
+        class_str = type(self).__name__
+        start_str = self.start.strftime(&#34;%Y-%m-%d at %H:%M&#34;)
+        duration_str = str(self.duration)
+
+        # Don&#39;t bother with a description if it is the same text as an obvious
+        # gerund.  When we think we have a useful description, will annotate
+        # the class reference in the return string with the description. Any
+        # occurences of None are disregarded as well.
+
+        if (
+            (self.description == class_str)
+            or (self.description is None)
+            or (self.description == &#34;Running&#34; and class_str == &#34;Run&#34;)
+            or (self.description == &#34;Cycling&#34; and class_str == &#34;Cycle&#34;)
+        ):
+            caption = &#34;&#34;
+        else:
+            caption = f&#34; ({self.description})&#34;
+
+        # Transform None to &#34;--&#34; for optional fields other than
+        # description, which is handled above.  We will do the same
+        # for 0 because that typically means data wasn&#39;t captured.
+        # Since &#34;if x&#34; will not be true if x is None or x is 0, we
+        # can set the field to &#34;--&#34; then test on x and adjust.
+
+        calories_token = &#34;--&#34;
+        if self.calories:
+            calories_token = str(self.calories)
+
+        max_hr_token = &#34;--&#34;
+        if self.maximum_heart_rate:
+            max_hr_token = str(self.maximum_heart_rate)
+
+        avg_hr_token = &#34;--&#34;
+        if self.average_heart_rate:
+            avg_hr_token = str(self.average_heart_rate)
+
+        f_1 = f&#34;[{class_str}{caption} on {start_str} &#34;
+        f_2 = f&#34;for {duration_str} Calories: {calories_token} &#34;
+        f_3 = f&#34;Max HR: {max_hr_token} Avg HR: {avg_hr_token}]&#34;
+
+        return f_1 + f_2 + f_3
+
+    @staticmethod
+    def subclasses() -&gt; tuple:
+        &#34;&#34;&#34;Return a tuple of Activity subclasses.&#34;&#34;&#34;
+        return tuple(Activity.__subclasses__())
+
+    @staticmethod
+    def subclass_names() -&gt; tuple:
+        &#34;&#34;&#34;Return a tuple of Activity subclass names.&#34;&#34;&#34;
+        return tuple([cls.__name__ for cls in Activity.subclasses()])
+
+    @staticmethod
+    def activity_dictionary() -&gt; dict:
+        &#34;&#34;&#34;Return a dictionary of Activity subclass names to subclasses.&#34;&#34;&#34;
+        return {cls.__name__: cls for cls in Activity.subclasses()}
+
+    @staticmethod
+    def tally(athlete, class_name: str, start=None, end=None):
+        &#34;&#34;&#34;Return a Counter with athlete&#39;s aggregated activity data for the specified
+        Activity class.  All counters include activity count, calories and
+        duration.  Counters for Walk, Cycle and Run include distance.
+        &#34;&#34;&#34;
+
+        if not isinstance(class_name, str):
+            raise TypeError(&#34;class name must be a string&#34;)
+
+        if class_name not in Activity.subclass_names():
+            raise ValueError(&#34;invalid class name&#34;)
+
+        if start is None:
+            start_date = parse_date(&#34;1970-01-01&#34;)
+        else:
+            start_date = parse_date(start)
+
+        if end is None:
+            end_date = datetime.date.today()
+        else:
+            end_date = parse_date(end)
+
+        target_class = Activity.activity_dictionary()[class_name]
+
+        tally = Counter({&#34;count&#34;: 0, &#34;calories&#34;: 0, &#34;duration&#34;: datetime.timedelta()})
+
+        if class_name in (&#34;Cycle&#34;, &#34;Run&#34;, &#34;Walk&#34;):
+            tally.update({&#34;distance&#34;: Decimal(0)})
+
+        activities = athlete.get_activities(target_class)
+        for activity in activities:
+            if start_date &lt;= activity.start.date() &lt;= end_date:
+                tally.update({&#34;count&#34;: 1, &#34;duration&#34;: activity.duration})
+                if activity.calories:
+                    tally.update({&#34;calories&#34;: activity.calories})
+                if class_name in (&#34;Cycle&#34;, &#34;Run&#34;, &#34;Walk&#34;) and activity.distance:
+                    tally.update({&#34;distance&#34;: activity.distance})
+
+        return tally
+
+
+class Cycle(Activity):
+    &#34;&#34;&#34;py_athletics Cycle Activity subclass. A Cycle object may include all
+    Activity attributes as well as distance, type, maximum_speed,
+    Average_speed, average_power and maximum_average_power attributes.
+    Cycle type is a string and can be one of &#39;commute&#39;, &#39;road&#39;, &#39;trail&#39;,or
+    &#39;stationary&#39;.  The maximum_speed and average_speed attributes are
+    expressed in miles per hour.  The normalized_power attribute is in watts.
+    Cycle type is accepted but not yet used.
+    &#34;&#34;&#34;
+
+    cycle_type_set = {&#34;commute&#34;, &#34;road&#34;, &#34;trail&#34;, &#34;stationary&#34;}
+
+    def __init__(
+        self, start: datetime.datetime, duration: datetime.timedelta, **kwargs
+    ):
+        &#34;&#34;&#34;Create a Cycle Activity. This method requires start and duration
+        arguments and will accept keyword arguments for all other Activity and
+        Cycle attributes.&#34;&#34;&#34;
+
+        # Remove distance, type, maximum_speed, average_speed, average_power,
+        # and maximum_average_power from the argument dictionary and pass the
+        # remainder to Activity for handling.
+
+        distance = kwargs.pop(&#34;distance&#34;, None)
+        type = kwargs.pop(&#34;type&#34;, None)
+        maximum_speed = kwargs.pop(&#34;maximum_speed&#34;, None)
+        average_speed = kwargs.pop(&#34;average_speed&#34;, None)
+        normalized_power = kwargs.pop(&#34;normalized_power&#34;, None)
+
+        super().__init__(start, duration, **kwargs)
+
+        if distance and not isinstance(distance, Decimal):
+            raise TypeError(&#34;distance must be a Decimal&#34;)
+        if distance and distance &lt;= 0:
+            raise ValueError(&#34;distance must be positive&#34;)
+
+        if type and not isinstance(type, str):
+            raise TypeError(&#34;type must be a string&#34;)
+        if type and type not in Cycle.cycle_type_set:
+            raise ValueError(&#34;invalid Cycle type&#34;)
+
+        if maximum_speed and not isinstance(maximum_speed, Decimal):
+            raise TypeError(&#34;maximum speed must be a Decimal&#34;)
+        if maximum_speed and maximum_speed &lt;= 0:
+            raise ValueError(&#34;maximum must be positive&#34;)
+
+        if average_speed and not isinstance(average_speed, Decimal):
+            raise TypeError(&#34;average  speed must be a Decimal&#34;)
+        if average_speed and average_speed &lt;= 0:
+            raise ValueError(&#34;average speed must be positive&#34;)
+
+        if normalized_power and not isinstance(normalized_power, int):
+            raise TypeError(&#34;normalized power must be an integer&#34;)
+        if normalized_power and normalized_power &lt;= 0:
+            raise ValueError(&#34;normalized power must be positive&#34;)
+
+        self.distance = distance
+        self.type = type
+        self.maximum_speed = maximum_speed
+        self.average_speed = average_speed
+        self.normalized_power = normalized_power
+
+    def __repr__(self):
+
+        # The Cycle class adds distance, maximum_speed, average_speed and
+        # normalized power to the detail to be included in the __repr__
+        # string.  The method gets the common base string from the parent
+        # class and then adds the additional detail before the closing
+        # bracket.
+
+        super_class_str = super().__repr__()
+
+        # Transform None and 0 to &#34;--&#34; for optional fields.
+        # Since &#34;if x&#34; will not be true if x is None or x is 0, we
+        # can set the field to &#34;--&#34; then test on x and adjust.
+
+        distance_token = &#34;--&#34;
+        if self.distance:
+            distance_token = self.distance
+
+        max_speed_token = &#34;--&#34;
+        if self.maximum_speed:
+            max_speed_token = self.maximum_speed
+
+        avg_speed_token = &#34;--&#34;
+        if self.average_speed:
+            avg_speed_token = self.average_speed
+
+        power_token = &#34;--&#34;
+        if self.normalized_power:
+            power_token = self.normalized_power
+
+        f_1 = f&#34;Distance (miles): {distance_token} &#34;
+        f_2 = f&#34;Max Speed (mph): {max_speed_token} &#34;
+        f_3 = f&#34;Avg Speed (mph): {avg_speed_token} &#34;
+        f_4 = f&#34;Normalized Power (watts): {power_token}&#34;
+
+        addendum_str = &#34; &#34; + f_1 + f_2 + f_3 + f_4
+
+        return super_class_str[:-1] + addendum_str + super_class_str[-1:]
+
+
+class Run(Activity):
+    &#34;&#34;&#34;py_athletics Run Activity subclass.  A Run object may include all
+    Activity attributes as well as distance, type, maximum_speed and
+    average_speed attributes.  Run type is a string and can be one of
+    &#39;track&#39;, &#39;road&#39; or &#39;treadmill&#39;.  The maximum_speed and average_speed
+    attributes are expressed in minutes per mile.  Run type is accepted but
+    not yet used.
+    &#34;&#34;&#34;
+
+    run_type_set = {&#34;track&#34;, &#34;road&#34;, &#34;treadmill&#34;}
+
+    def __init__(
+        self, start: datetime.datetime, duration: datetime.timedelta, **kwargs
+    ):
+        &#34;&#34;&#34;Create a Run Activity.  This method requires start and duration
+        arguments and will accept keyword arguments for all other Activity and
+        Run attributes.
+        &#34;&#34;&#34;
+
+        # Remove distance, type, maximum_speed and average_speed
+        # from the argument dictionary and pass the remainder
+        # to Activity for handling.
+
+        distance = kwargs.pop(&#34;distance&#34;, None)
+        type = kwargs.pop(&#34;type&#34;, None)
+        maximum_speed = kwargs.pop(&#34;maximum_speed&#34;, None)
+        average_speed = kwargs.pop(&#34;average_speed&#34;, None)
+
+        super().__init__(start, duration, **kwargs)
+
+        if distance and not isinstance(distance, Decimal):
+            raise TypeError(&#34;distance must be a Decimal&#34;)
+        if distance and distance &lt;= 0:
+            raise ValueError(&#34;distance must be positive&#34;)
+
+        if type and not isinstance(type, str):
+            raise TypeError(&#34;type must be a string&#34;)
+        if type and type not in Run.run_type_set:
+            raise ValueError(&#34;invalid run type&#34;)
+
+        if maximum_speed and not isinstance(maximum_speed, datetime.time):
+            raise TypeError(&#34;maximum speed must be a time object&#34;)
+
+        if average_speed and not isinstance(average_speed, datetime.time):
+            raise TypeError(&#34;average speed must be a time object&#34;)
+
+        self.distance = distance
+        self.type = type
+        self.maximum_speed = maximum_speed
+        self.average_speed = average_speed
+
+    def __repr__(self):
+
+        # The Run class adds distance, maximum_speed, and average_speed
+        # to the detail to be included in the __repr__string.  The method
+        # gets the common base string from the parent class and then adds
+        # the additional detail before the closing bracket.
+
+        super_class_str = super().__repr__()
+
+        # Transform None and 0 to &#34;--&#34; for optional fields.
+        # Since &#34;if x&#34; will not be true if x is None or x is 0, we
+        # can set the field to &#34;--&#34; then test on x and adjust.
+        # Speed measures are in time, representing minutes per mile.
+
+        distance_token = &#34;--&#34;
+        if self.distance:
+            distance_token = self.distance
+
+        max_speed_token = &#34;--&#34;
+        if self.maximum_speed:
+            max_speed_token = self.maximum_speed.strftime(&#34;%M:%S&#34;)
+
+        avg_speed_token = &#34;--&#34;
+        if self.average_speed:
+            avg_speed_token = self.average_speed.strftime(&#34;%M:%S&#34;)
+
+        f_1 = f&#34;Distance (miles): {distance_token} &#34;
+        f_2 = f&#34;Max Speed (minutes/mile): {max_speed_token} &#34;
+        f_3 = f&#34;Avg Speed (minutes/mile): {avg_speed_token}&#34;
+
+        addendum_str = &#34; &#34; + f_1 + f_2 + f_3
+
+        return super_class_str[:-1] + addendum_str + super_class_str[-1:]
+
+
+class Tennis(Activity):
+    &#34;&#34;&#34;py_athletics Tennis Activity subclass.  A Tennis object may include all
+    Activity attributes as well as type and partner attributes. The type
+    attribute is a string and can be one of &#34;ball_machine&#34;, &#34;cardio&#34;, &#34;drill&#34;,
+    &#34;hitting_session&#34;, &#34;lesson&#34;, or &#34;match&#34;.  The partner attribute is a
+    string.  The type and partner attributes are accepted but not yet used.
+    &#34;&#34;&#34;
+
+    tennis_type_set = {
+        &#34;ball_machine&#34;,
+        &#34;cardio&#34;,
+        &#34;drill&#34;,
+        &#34;hitting_session&#34;,
+        &#34;lesson&#34;,
+        &#34;match&#34;,
+    }
+
+    def __init__(
+        self, start: datetime.datetime, duration: datetime.timedelta, **kwargs
+    ):
+        &#34;&#34;&#34;Create a Tennis Activity.  This method requires start and duration
+        arguments and will accept keyword arguments for all other Activity and
+        Tennis attributes.&#34;&#34;&#34;
+
+        # Remove type and partner from the argument dictionary
+        # and pass the remainder to Activity for handling.
+
+        partner = kwargs.pop(&#34;partner&#34;, None)
+        type = kwargs.pop(&#34;type&#34;, None)
+
+        super().__init__(start, duration, **kwargs)
+
+        if partner and not isinstance(partner, str):
+            raise TypeError(&#34;partner must be a string&#34;)
+
+        if type and not isinstance(type, str):
+            raise TypeError(&#34;type must be a string&#34;)
+        if type and type not in Tennis.tennis_type_set:
+            raise ValueError(&#34;invalid tennis type&#34;)
+
+        self.partner = partner
+        self.type = type
+
+
+class Walk(Activity):
+    &#34;&#34;&#34;py_athletics Walk Activity subclass.  A Walk object may include all
+    Activity attributes as well as distance, type, maximum_speed and
+    average_speed attributes.  Walk type is a string and can be one of
+    &#39;track&#39;, &#39;road&#39; or &#39;treadmill&#39;.  The maximum_speed and average_speed
+    attributes are expressed in minutes per mile.  The type attribute is
+    accepted but not yet used.
+    &#34;&#34;&#34;
+
+    walk_type_set = {&#34;track&#34;, &#34;road&#34;, &#34;treadmill&#34;}
+
+    def __init__(
+        self, start: datetime.datetime, duration: datetime.timedelta, **kwargs
+    ):
+        &#34;&#34;&#34;Create a Walk Activity.  This method requires start and duration
+        arguments and will accept keyword arguments for all other Activity and
+        Walk attributes.
+        &#34;&#34;&#34;
+
+        # Copy distance, type, maximum_speed and average_speed
+        # from the argument dictionary and call Activity for handling.
+        # Process these arguments after the Activity initialization is
+        # complete.
+
+        distance = kwargs.pop(&#34;distance&#34;, None)
+        type = kwargs.pop(&#34;type&#34;, None)
+        maximum_speed = kwargs.pop(&#34;maximum_speed&#34;, None)
+        average_speed = kwargs.pop(&#34;average_speed&#34;, None)
+
+        super().__init__(start, duration, **kwargs)
+
+        if distance and not isinstance(distance, Decimal):
+            raise TypeError(&#34;distance must be a Decimal&#34;)
+        if distance and distance &lt;= 0:
+            raise ValueError(&#34;distance must be positive&#34;)
+
+        if type and not isinstance(type, str):
+            raise TypeError(&#34;type must be a string&#34;)
+        if type and type not in Walk.walk_type_set:
+            raise ValueError(&#34;invalid walk type&#34;)
+
+        if maximum_speed and not isinstance(maximum_speed, datetime.time):
+            raise TypeError(&#34;maximum speed must be time object&#34;)
+
+        if average_speed and not isinstance(average_speed, datetime.time):
+            raise TypeError(&#34;average  speed must be time object&#34;)
+
+        self.distance = distance
+        self.type = type
+        self.maximum_speed = maximum_speed
+        self.average_speed = average_speed
+
+    def __repr__(self):
+
+        # The Walk class adds distance, maximum_speed, and average_speed
+        # to the detail to be included in the __repr__string.  The method
+        # gets the common base string from the parent class and then adds
+        # the additional detail before the closing bracket.
+
+        super_class_str = super().__repr__()
+
+        # Transform None and 0 to &#34;--&#34; for optional fields.
+        # Since &#34;if x&#34; will not be true if x is None or x is 0, we
+        # can set the field to &#34;--&#34; then test on x and adjust.
+        # Speed measures are in time, representing minutes per to cover
+        # a mile
+
+        distance_token = &#34;--&#34;
+        if self.distance:
+            distance_token = self.distance
+
+        max_speed_token = &#34;--&#34;
+        if self.maximum_speed:
+            max_speed_token = self.maximum_speed.strftime(&#34;%M:%S&#34;)
+
+        avg_speed_token = &#34;--&#34;
+        if self.average_speed:
+            avg_speed_token = self.average_speed.strftime(&#34;%M:%S&#34;)
+
+        f_1 = f&#34;Distance (miles): {distance_token} &#34;
+        f_2 = f&#34;Max Speed (minutes/mile): {max_speed_token} &#34;
+        f_3 = f&#34;Avg Speed (minutes/mile): {avg_speed_token}&#34;
+
+        addendum_str = &#34; &#34; + f_1 + f_2 + f_3
+
+        return super_class_str[:-1] + addendum_str + super_class_str[-1:]
+
+
+class Workout(Activity):
+    &#34;&#34;&#34;py_Athletics Workout Activity subclass.  A Workout object may
+    include all Activity attributes as well as type and trainer attributes.
+    The type attribute is a string and can be either &#34;personal_training&#34; or
+    &#34;solo&#34;.  The trainer attribute is a string.  The type and trainer
+    attributes are accepted but not yet used.
+    &#34;&#34;&#34;
+
+    workout_type_set = {&#34;personal_training&#34;, &#34;solo&#34;}
+
+    def __init__(
+        self, start: datetime.datetime, duration: datetime.timedelta, **kwargs
+    ):
+        &#34;&#34;&#34;Create a Workout Activity.  This method requires start and duration
+        arguments and will accept keyword arguments for all other Activity and
+        Workout attributes.&#34;&#34;&#34;
+
+        # Remove type and trainer from the argument dictionary and pass the
+        # remainder to Activity for handling.
+
+        trainer = kwargs.pop(&#34;trainer&#34;, None)
+        type = kwargs.pop(&#34;type&#34;, None)
+
+        super().__init__(start, duration, **kwargs)
+
+        if trainer and not isinstance(trainer, str):
+            raise TypeError(&#34;trainer must be a string&#34;)
+
+        if type and not isinstance(type, str):
+            raise TypeError(&#34;type must be a string&#34;)
+        if type and type not in Workout.workout_type_set:
+            raise ValueError(&#34;invalid workout type&#34;)
+
+        self.trainer = trainer
+        self.type = type</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="py_athletics.src.activity.activity.Activity"><code class="flex name class">
+<span>class <span class="ident">Activity</span></span>
+<span>(</span><span>start: datetime.datetime, duration: datetime.timedelta, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>py_athletics Activity class.</p>
+<p>Create an Activity.</p>
+<p>This method requires start and duration arguments and will accept
+keyword arguments for all other attributes.
+All Activity subclasses
+call it after they have removed subclass specific keyword arguments.
+Surplus keyword arguments are tolerated and ignored.
+Venues are
+currently accepted by not used.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Activity:
+    &#34;&#34;&#34;py_athletics Activity class.&#34;&#34;&#34;
+
+    # Activities can either be indoor or outdoor.  While the venue attribute
+    # can be set manually, it will more often be derived as part of a subclass
+    # instantiation process.  Venues are not yet recognized.
+
+    venue_type_set = {&#34;indoor&#34;, &#34;outdoor&#34;}
+
+    def __init__(
+        self, start: datetime.datetime, duration: datetime.timedelta, **kwargs
+    ):
+        &#34;&#34;&#34;Create an Activity.
+
+        This method requires start and duration arguments and will accept
+        keyword arguments for all other attributes.  All Activity subclasses
+        call it after they have removed subclass specific keyword arguments.
+        Surplus keyword arguments are tolerated and ignored.  Venues are
+        currently accepted by not used.
+        &#34;&#34;&#34;
+
+        # The overwhelming bulk of the init method is to do type and value
+        # checking.  Because of the rich set of optional attributes this code
+        # relies on **kwargs.  It looks for specific keywords and ignores
+        # everything else.  This is done, in part, to permit subclasses to add
+        # attributes and not require them to strip related keywords in advance
+        # of calling this methods, and in part, for convenience.
+
+        if not isinstance(start, datetime.datetime):
+            raise TypeError(&#34;start must be a datetime&#34;)
+
+        if not isinstance(duration, datetime.timedelta):
+            raise TypeError(&#34;duration must be a timedelta object&#34;)
+
+        # Handle optional arguments from argument dictionary.
+
+        description = kwargs.pop(&#34;description&#34;, None)
+        if description and not isinstance(description, str):
+            raise TypeError(&#34;description must be a string&#34;)
+
+        calories = kwargs.pop(&#34;calories&#34;, None)
+        if calories and not isinstance(calories, int):
+            raise TypeError(&#34;calories must be an integer&#34;)
+        if calories and calories &lt;= 0:
+            raise ValueError(&#34;calories must be positive&#34;)
+
+        maximum_heart_rate = kwargs.pop(&#34;maximum_heart_rate&#34;, None)
+        if maximum_heart_rate and not isinstance(maximum_heart_rate, int):
+            raise TypeError(&#34;maximum heart rate must be an integer&#34;)
+        if maximum_heart_rate and maximum_heart_rate &lt;= 0:
+            raise ValueError(&#34;maximum heart rate must be positive&#34;)
+
+        average_heart_rate = kwargs.pop(&#34;average_heart_rate&#34;, None)
+        if average_heart_rate and not isinstance(average_heart_rate, int):
+            raise TypeError(&#34;average heart rate must be an integer&#34;)
+        if average_heart_rate and average_heart_rate &lt;= 0:
+            raise ValueError(&#34;average heart rate must be positive&#34;)
+
+        venue = kwargs.pop(&#34;venue&#34;, None)
+        if venue and not isinstance(venue, str):
+            raise TypeError(&#34;venue must be a string&#34;)
+
+        venue_type = kwargs.pop(&#34;venue_type&#34;, None)
+        if venue_type and not isinstance(venue_type, str):
+            raise TypeError(&#34;venue must be a string&#34;)
+        if venue_type and venue_type not in Activity.venue_type_set:
+            raise ValueError(&#34;invalid venue type&#34;)
+
+        garmin_activity_type = kwargs.pop(&#34;garmin_activity_type&#34;, None)
+        if garmin_activity_type and not isinstance(garmin_activity_type, str):
+            raise TypeError(&#34;garmin activity type must be a string&#34;)
+
+        self.start = start
+        self.duration = duration
+        self.description = description
+        self.calories = calories
+        self.maximum_heart_rate = maximum_heart_rate
+        self.average_heart_rate = average_heart_rate
+        self.venue = venue
+        self.venue_type = venue_type
+        self.__garmin_activity_type = garmin_activity_type
+
+    @property
+    def garmin_activity_type(self) -&gt; str:
+        &#34;&#34;&#34;Get the Garmin activity type string used to derive the Activity
+        subclass for Activities read from a Garmin activity file.&#34;&#34;&#34;
+
+        return self.__garmin_activity_type
+
+    def __str__(self) -&gt; str:
+
+        # The __name__ attribute of the class object is a convenient
+        # was to get informtion about an instance.  We use it here to
+        # add the class or subclass name, as the case may be,
+        # in the return string.
+
+        class_str = type(self).__name__
+        start_str = self.start.strftime(&#34;%Y-%m-%d at %H:%M&#34;)
+        duration_str = str(self.duration)
+        return f&#34;[{class_str} on {start_str} for {duration_str}]&#34;
+
+    def __repr__(self) -&gt; str:
+
+        # The __repr__ method serves as the foundation for the py_athletics
+        # activity reporting system.  Subclasses that add attributes to be
+        # reported can call this method for the bulk of the string and modify
+        # it as need be for subclass purposes.
+
+        class_str = type(self).__name__
+        start_str = self.start.strftime(&#34;%Y-%m-%d at %H:%M&#34;)
+        duration_str = str(self.duration)
+
+        # Don&#39;t bother with a description if it is the same text as an obvious
+        # gerund.  When we think we have a useful description, will annotate
+        # the class reference in the return string with the description. Any
+        # occurences of None are disregarded as well.
+
+        if (
+            (self.description == class_str)
+            or (self.description is None)
+            or (self.description == &#34;Running&#34; and class_str == &#34;Run&#34;)
+            or (self.description == &#34;Cycling&#34; and class_str == &#34;Cycle&#34;)
+        ):
+            caption = &#34;&#34;
+        else:
+            caption = f&#34; ({self.description})&#34;
+
+        # Transform None to &#34;--&#34; for optional fields other than
+        # description, which is handled above.  We will do the same
+        # for 0 because that typically means data wasn&#39;t captured.
+        # Since &#34;if x&#34; will not be true if x is None or x is 0, we
+        # can set the field to &#34;--&#34; then test on x and adjust.
+
+        calories_token = &#34;--&#34;
+        if self.calories:
+            calories_token = str(self.calories)
+
+        max_hr_token = &#34;--&#34;
+        if self.maximum_heart_rate:
+            max_hr_token = str(self.maximum_heart_rate)
+
+        avg_hr_token = &#34;--&#34;
+        if self.average_heart_rate:
+            avg_hr_token = str(self.average_heart_rate)
+
+        f_1 = f&#34;[{class_str}{caption} on {start_str} &#34;
+        f_2 = f&#34;for {duration_str} Calories: {calories_token} &#34;
+        f_3 = f&#34;Max HR: {max_hr_token} Avg HR: {avg_hr_token}]&#34;
+
+        return f_1 + f_2 + f_3
+
+    @staticmethod
+    def subclasses() -&gt; tuple:
+        &#34;&#34;&#34;Return a tuple of Activity subclasses.&#34;&#34;&#34;
+        return tuple(Activity.__subclasses__())
+
+    @staticmethod
+    def subclass_names() -&gt; tuple:
+        &#34;&#34;&#34;Return a tuple of Activity subclass names.&#34;&#34;&#34;
+        return tuple([cls.__name__ for cls in Activity.subclasses()])
+
+    @staticmethod
+    def activity_dictionary() -&gt; dict:
+        &#34;&#34;&#34;Return a dictionary of Activity subclass names to subclasses.&#34;&#34;&#34;
+        return {cls.__name__: cls for cls in Activity.subclasses()}
+
+    @staticmethod
+    def tally(athlete, class_name: str, start=None, end=None):
+        &#34;&#34;&#34;Return a Counter with athlete&#39;s aggregated activity data for the specified
+        Activity class.  All counters include activity count, calories and
+        duration.  Counters for Walk, Cycle and Run include distance.
+        &#34;&#34;&#34;
+
+        if not isinstance(class_name, str):
+            raise TypeError(&#34;class name must be a string&#34;)
+
+        if class_name not in Activity.subclass_names():
+            raise ValueError(&#34;invalid class name&#34;)
+
+        if start is None:
+            start_date = parse_date(&#34;1970-01-01&#34;)
+        else:
+            start_date = parse_date(start)
+
+        if end is None:
+            end_date = datetime.date.today()
+        else:
+            end_date = parse_date(end)
+
+        target_class = Activity.activity_dictionary()[class_name]
+
+        tally = Counter({&#34;count&#34;: 0, &#34;calories&#34;: 0, &#34;duration&#34;: datetime.timedelta()})
+
+        if class_name in (&#34;Cycle&#34;, &#34;Run&#34;, &#34;Walk&#34;):
+            tally.update({&#34;distance&#34;: Decimal(0)})
+
+        activities = athlete.get_activities(target_class)
+        for activity in activities:
+            if start_date &lt;= activity.start.date() &lt;= end_date:
+                tally.update({&#34;count&#34;: 1, &#34;duration&#34;: activity.duration})
+                if activity.calories:
+                    tally.update({&#34;calories&#34;: activity.calories})
+                if class_name in (&#34;Cycle&#34;, &#34;Run&#34;, &#34;Walk&#34;) and activity.distance:
+                    tally.update({&#34;distance&#34;: activity.distance})
+
+        return tally</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="py_athletics.src.activity.activity.Cycle" href="#py_athletics.src.activity.activity.Cycle">Cycle</a></li>
+<li><a title="py_athletics.src.activity.activity.Run" href="#py_athletics.src.activity.activity.Run">Run</a></li>
+<li><a title="py_athletics.src.activity.activity.Tennis" href="#py_athletics.src.activity.activity.Tennis">Tennis</a></li>
+<li><a title="py_athletics.src.activity.activity.Walk" href="#py_athletics.src.activity.activity.Walk">Walk</a></li>
+<li><a title="py_athletics.src.activity.activity.Workout" href="#py_athletics.src.activity.activity.Workout">Workout</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="py_athletics.src.activity.activity.Activity.venue_type_set"><code class="name">var <span class="ident">venue_type_set</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="py_athletics.src.activity.activity.Activity.activity_dictionary"><code class="name flex">
+<span>def <span class="ident">activity_dictionary</span></span>(<span>) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return a dictionary of Activity subclass names to subclasses.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def activity_dictionary() -&gt; dict:
+    &#34;&#34;&#34;Return a dictionary of Activity subclass names to subclasses.&#34;&#34;&#34;
+    return {cls.__name__: cls for cls in Activity.subclasses()}</code></pre>
+</details>
+</dd>
+<dt id="py_athletics.src.activity.activity.Activity.subclass_names"><code class="name flex">
+<span>def <span class="ident">subclass_names</span></span>(<span>) ‑> tuple</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return a tuple of Activity subclass names.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def subclass_names() -&gt; tuple:
+    &#34;&#34;&#34;Return a tuple of Activity subclass names.&#34;&#34;&#34;
+    return tuple([cls.__name__ for cls in Activity.subclasses()])</code></pre>
+</details>
+</dd>
+<dt id="py_athletics.src.activity.activity.Activity.subclasses"><code class="name flex">
+<span>def <span class="ident">subclasses</span></span>(<span>) ‑> tuple</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return a tuple of Activity subclasses.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def subclasses() -&gt; tuple:
+    &#34;&#34;&#34;Return a tuple of Activity subclasses.&#34;&#34;&#34;
+    return tuple(Activity.__subclasses__())</code></pre>
+</details>
+</dd>
+<dt id="py_athletics.src.activity.activity.Activity.tally"><code class="name flex">
+<span>def <span class="ident">tally</span></span>(<span>athlete, class_name: str, start=None, end=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return a Counter with athlete's aggregated activity data for the specified
+Activity class.
+All counters include activity count, calories and
+duration.
+Counters for Walk, Cycle and Run include distance.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def tally(athlete, class_name: str, start=None, end=None):
+    &#34;&#34;&#34;Return a Counter with athlete&#39;s aggregated activity data for the specified
+    Activity class.  All counters include activity count, calories and
+    duration.  Counters for Walk, Cycle and Run include distance.
+    &#34;&#34;&#34;
+
+    if not isinstance(class_name, str):
+        raise TypeError(&#34;class name must be a string&#34;)
+
+    if class_name not in Activity.subclass_names():
+        raise ValueError(&#34;invalid class name&#34;)
+
+    if start is None:
+        start_date = parse_date(&#34;1970-01-01&#34;)
+    else:
+        start_date = parse_date(start)
+
+    if end is None:
+        end_date = datetime.date.today()
+    else:
+        end_date = parse_date(end)
+
+    target_class = Activity.activity_dictionary()[class_name]
+
+    tally = Counter({&#34;count&#34;: 0, &#34;calories&#34;: 0, &#34;duration&#34;: datetime.timedelta()})
+
+    if class_name in (&#34;Cycle&#34;, &#34;Run&#34;, &#34;Walk&#34;):
+        tally.update({&#34;distance&#34;: Decimal(0)})
+
+    activities = athlete.get_activities(target_class)
+    for activity in activities:
+        if start_date &lt;= activity.start.date() &lt;= end_date:
+            tally.update({&#34;count&#34;: 1, &#34;duration&#34;: activity.duration})
+            if activity.calories:
+                tally.update({&#34;calories&#34;: activity.calories})
+            if class_name in (&#34;Cycle&#34;, &#34;Run&#34;, &#34;Walk&#34;) and activity.distance:
+                tally.update({&#34;distance&#34;: activity.distance})
+
+    return tally</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="py_athletics.src.activity.activity.Activity.garmin_activity_type"><code class="name">var <span class="ident">garmin_activity_type</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Get the Garmin activity type string used to derive the Activity
+subclass for Activities read from a Garmin activity file.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def garmin_activity_type(self) -&gt; str:
+    &#34;&#34;&#34;Get the Garmin activity type string used to derive the Activity
+    subclass for Activities read from a Garmin activity file.&#34;&#34;&#34;
+
+    return self.__garmin_activity_type</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="py_athletics.src.activity.activity.Cycle"><code class="flex name class">
+<span>class <span class="ident">Cycle</span></span>
+<span>(</span><span>start: datetime.datetime, duration: datetime.timedelta, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>py_athletics Cycle Activity subclass. A Cycle object may include all
+Activity attributes as well as distance, type, maximum_speed,
+Average_speed, average_power and maximum_average_power attributes.
+Cycle type is a string and can be one of 'commute', 'road', 'trail',or
+'stationary'.
+The maximum_speed and average_speed attributes are
+expressed in miles per hour.
+The normalized_power attribute is in watts.
+Cycle type is accepted but not yet used.</p>
+<p>Create a Cycle Activity. This method requires start and duration
+arguments and will accept keyword arguments for all other Activity and
+Cycle attributes.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Cycle(Activity):
+    &#34;&#34;&#34;py_athletics Cycle Activity subclass. A Cycle object may include all
+    Activity attributes as well as distance, type, maximum_speed,
+    Average_speed, average_power and maximum_average_power attributes.
+    Cycle type is a string and can be one of &#39;commute&#39;, &#39;road&#39;, &#39;trail&#39;,or
+    &#39;stationary&#39;.  The maximum_speed and average_speed attributes are
+    expressed in miles per hour.  The normalized_power attribute is in watts.
+    Cycle type is accepted but not yet used.
+    &#34;&#34;&#34;
+
+    cycle_type_set = {&#34;commute&#34;, &#34;road&#34;, &#34;trail&#34;, &#34;stationary&#34;}
+
+    def __init__(
+        self, start: datetime.datetime, duration: datetime.timedelta, **kwargs
+    ):
+        &#34;&#34;&#34;Create a Cycle Activity. This method requires start and duration
+        arguments and will accept keyword arguments for all other Activity and
+        Cycle attributes.&#34;&#34;&#34;
+
+        # Remove distance, type, maximum_speed, average_speed, average_power,
+        # and maximum_average_power from the argument dictionary and pass the
+        # remainder to Activity for handling.
+
+        distance = kwargs.pop(&#34;distance&#34;, None)
+        type = kwargs.pop(&#34;type&#34;, None)
+        maximum_speed = kwargs.pop(&#34;maximum_speed&#34;, None)
+        average_speed = kwargs.pop(&#34;average_speed&#34;, None)
+        normalized_power = kwargs.pop(&#34;normalized_power&#34;, None)
+
+        super().__init__(start, duration, **kwargs)
+
+        if distance and not isinstance(distance, Decimal):
+            raise TypeError(&#34;distance must be a Decimal&#34;)
+        if distance and distance &lt;= 0:
+            raise ValueError(&#34;distance must be positive&#34;)
+
+        if type and not isinstance(type, str):
+            raise TypeError(&#34;type must be a string&#34;)
+        if type and type not in Cycle.cycle_type_set:
+            raise ValueError(&#34;invalid Cycle type&#34;)
+
+        if maximum_speed and not isinstance(maximum_speed, Decimal):
+            raise TypeError(&#34;maximum speed must be a Decimal&#34;)
+        if maximum_speed and maximum_speed &lt;= 0:
+            raise ValueError(&#34;maximum must be positive&#34;)
+
+        if average_speed and not isinstance(average_speed, Decimal):
+            raise TypeError(&#34;average  speed must be a Decimal&#34;)
+        if average_speed and average_speed &lt;= 0:
+            raise ValueError(&#34;average speed must be positive&#34;)
+
+        if normalized_power and not isinstance(normalized_power, int):
+            raise TypeError(&#34;normalized power must be an integer&#34;)
+        if normalized_power and normalized_power &lt;= 0:
+            raise ValueError(&#34;normalized power must be positive&#34;)
+
+        self.distance = distance
+        self.type = type
+        self.maximum_speed = maximum_speed
+        self.average_speed = average_speed
+        self.normalized_power = normalized_power
+
+    def __repr__(self):
+
+        # The Cycle class adds distance, maximum_speed, average_speed and
+        # normalized power to the detail to be included in the __repr__
+        # string.  The method gets the common base string from the parent
+        # class and then adds the additional detail before the closing
+        # bracket.
+
+        super_class_str = super().__repr__()
+
+        # Transform None and 0 to &#34;--&#34; for optional fields.
+        # Since &#34;if x&#34; will not be true if x is None or x is 0, we
+        # can set the field to &#34;--&#34; then test on x and adjust.
+
+        distance_token = &#34;--&#34;
+        if self.distance:
+            distance_token = self.distance
+
+        max_speed_token = &#34;--&#34;
+        if self.maximum_speed:
+            max_speed_token = self.maximum_speed
+
+        avg_speed_token = &#34;--&#34;
+        if self.average_speed:
+            avg_speed_token = self.average_speed
+
+        power_token = &#34;--&#34;
+        if self.normalized_power:
+            power_token = self.normalized_power
+
+        f_1 = f&#34;Distance (miles): {distance_token} &#34;
+        f_2 = f&#34;Max Speed (mph): {max_speed_token} &#34;
+        f_3 = f&#34;Avg Speed (mph): {avg_speed_token} &#34;
+        f_4 = f&#34;Normalized Power (watts): {power_token}&#34;
+
+        addendum_str = &#34; &#34; + f_1 + f_2 + f_3 + f_4
+
+        return super_class_str[:-1] + addendum_str + super_class_str[-1:]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="py_athletics.src.activity.activity.Activity" href="#py_athletics.src.activity.activity.Activity">Activity</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="py_athletics.src.activity.activity.Cycle.cycle_type_set"><code class="name">var <span class="ident">cycle_type_set</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="py_athletics.src.activity.activity.Activity" href="#py_athletics.src.activity.activity.Activity">Activity</a></b></code>:
+<ul class="hlist">
+<li><code><a title="py_athletics.src.activity.activity.Activity.activity_dictionary" href="#py_athletics.src.activity.activity.Activity.activity_dictionary">activity_dictionary</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.garmin_activity_type" href="#py_athletics.src.activity.activity.Activity.garmin_activity_type">garmin_activity_type</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.subclass_names" href="#py_athletics.src.activity.activity.Activity.subclass_names">subclass_names</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.subclasses" href="#py_athletics.src.activity.activity.Activity.subclasses">subclasses</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.tally" href="#py_athletics.src.activity.activity.Activity.tally">tally</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="py_athletics.src.activity.activity.Run"><code class="flex name class">
+<span>class <span class="ident">Run</span></span>
+<span>(</span><span>start: datetime.datetime, duration: datetime.timedelta, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>py_athletics Run Activity subclass.
+A Run object may include all
+Activity attributes as well as distance, type, maximum_speed and
+average_speed attributes.
+Run type is a string and can be one of
+'track', 'road' or 'treadmill'.
+The maximum_speed and average_speed
+attributes are expressed in minutes per mile.
+Run type is accepted but
+not yet used.</p>
+<p>Create a Run Activity.
+This method requires start and duration
+arguments and will accept keyword arguments for all other Activity and
+Run attributes.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Run(Activity):
+    &#34;&#34;&#34;py_athletics Run Activity subclass.  A Run object may include all
+    Activity attributes as well as distance, type, maximum_speed and
+    average_speed attributes.  Run type is a string and can be one of
+    &#39;track&#39;, &#39;road&#39; or &#39;treadmill&#39;.  The maximum_speed and average_speed
+    attributes are expressed in minutes per mile.  Run type is accepted but
+    not yet used.
+    &#34;&#34;&#34;
+
+    run_type_set = {&#34;track&#34;, &#34;road&#34;, &#34;treadmill&#34;}
+
+    def __init__(
+        self, start: datetime.datetime, duration: datetime.timedelta, **kwargs
+    ):
+        &#34;&#34;&#34;Create a Run Activity.  This method requires start and duration
+        arguments and will accept keyword arguments for all other Activity and
+        Run attributes.
+        &#34;&#34;&#34;
+
+        # Remove distance, type, maximum_speed and average_speed
+        # from the argument dictionary and pass the remainder
+        # to Activity for handling.
+
+        distance = kwargs.pop(&#34;distance&#34;, None)
+        type = kwargs.pop(&#34;type&#34;, None)
+        maximum_speed = kwargs.pop(&#34;maximum_speed&#34;, None)
+        average_speed = kwargs.pop(&#34;average_speed&#34;, None)
+
+        super().__init__(start, duration, **kwargs)
+
+        if distance and not isinstance(distance, Decimal):
+            raise TypeError(&#34;distance must be a Decimal&#34;)
+        if distance and distance &lt;= 0:
+            raise ValueError(&#34;distance must be positive&#34;)
+
+        if type and not isinstance(type, str):
+            raise TypeError(&#34;type must be a string&#34;)
+        if type and type not in Run.run_type_set:
+            raise ValueError(&#34;invalid run type&#34;)
+
+        if maximum_speed and not isinstance(maximum_speed, datetime.time):
+            raise TypeError(&#34;maximum speed must be a time object&#34;)
+
+        if average_speed and not isinstance(average_speed, datetime.time):
+            raise TypeError(&#34;average speed must be a time object&#34;)
+
+        self.distance = distance
+        self.type = type
+        self.maximum_speed = maximum_speed
+        self.average_speed = average_speed
+
+    def __repr__(self):
+
+        # The Run class adds distance, maximum_speed, and average_speed
+        # to the detail to be included in the __repr__string.  The method
+        # gets the common base string from the parent class and then adds
+        # the additional detail before the closing bracket.
+
+        super_class_str = super().__repr__()
+
+        # Transform None and 0 to &#34;--&#34; for optional fields.
+        # Since &#34;if x&#34; will not be true if x is None or x is 0, we
+        # can set the field to &#34;--&#34; then test on x and adjust.
+        # Speed measures are in time, representing minutes per mile.
+
+        distance_token = &#34;--&#34;
+        if self.distance:
+            distance_token = self.distance
+
+        max_speed_token = &#34;--&#34;
+        if self.maximum_speed:
+            max_speed_token = self.maximum_speed.strftime(&#34;%M:%S&#34;)
+
+        avg_speed_token = &#34;--&#34;
+        if self.average_speed:
+            avg_speed_token = self.average_speed.strftime(&#34;%M:%S&#34;)
+
+        f_1 = f&#34;Distance (miles): {distance_token} &#34;
+        f_2 = f&#34;Max Speed (minutes/mile): {max_speed_token} &#34;
+        f_3 = f&#34;Avg Speed (minutes/mile): {avg_speed_token}&#34;
+
+        addendum_str = &#34; &#34; + f_1 + f_2 + f_3
+
+        return super_class_str[:-1] + addendum_str + super_class_str[-1:]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="py_athletics.src.activity.activity.Activity" href="#py_athletics.src.activity.activity.Activity">Activity</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="py_athletics.src.activity.activity.Run.run_type_set"><code class="name">var <span class="ident">run_type_set</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="py_athletics.src.activity.activity.Activity" href="#py_athletics.src.activity.activity.Activity">Activity</a></b></code>:
+<ul class="hlist">
+<li><code><a title="py_athletics.src.activity.activity.Activity.activity_dictionary" href="#py_athletics.src.activity.activity.Activity.activity_dictionary">activity_dictionary</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.garmin_activity_type" href="#py_athletics.src.activity.activity.Activity.garmin_activity_type">garmin_activity_type</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.subclass_names" href="#py_athletics.src.activity.activity.Activity.subclass_names">subclass_names</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.subclasses" href="#py_athletics.src.activity.activity.Activity.subclasses">subclasses</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.tally" href="#py_athletics.src.activity.activity.Activity.tally">tally</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="py_athletics.src.activity.activity.Tennis"><code class="flex name class">
+<span>class <span class="ident">Tennis</span></span>
+<span>(</span><span>start: datetime.datetime, duration: datetime.timedelta, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>py_athletics Tennis Activity subclass.
+A Tennis object may include all
+Activity attributes as well as type and partner attributes. The type
+attribute is a string and can be one of "ball_machine", "cardio", "drill",
+"hitting_session", "lesson", or "match".
+The partner attribute is a
+string.
+The type and partner attributes are accepted but not yet used.</p>
+<p>Create a Tennis Activity.
+This method requires start and duration
+arguments and will accept keyword arguments for all other Activity and
+Tennis attributes.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Tennis(Activity):
+    &#34;&#34;&#34;py_athletics Tennis Activity subclass.  A Tennis object may include all
+    Activity attributes as well as type and partner attributes. The type
+    attribute is a string and can be one of &#34;ball_machine&#34;, &#34;cardio&#34;, &#34;drill&#34;,
+    &#34;hitting_session&#34;, &#34;lesson&#34;, or &#34;match&#34;.  The partner attribute is a
+    string.  The type and partner attributes are accepted but not yet used.
+    &#34;&#34;&#34;
+
+    tennis_type_set = {
+        &#34;ball_machine&#34;,
+        &#34;cardio&#34;,
+        &#34;drill&#34;,
+        &#34;hitting_session&#34;,
+        &#34;lesson&#34;,
+        &#34;match&#34;,
+    }
+
+    def __init__(
+        self, start: datetime.datetime, duration: datetime.timedelta, **kwargs
+    ):
+        &#34;&#34;&#34;Create a Tennis Activity.  This method requires start and duration
+        arguments and will accept keyword arguments for all other Activity and
+        Tennis attributes.&#34;&#34;&#34;
+
+        # Remove type and partner from the argument dictionary
+        # and pass the remainder to Activity for handling.
+
+        partner = kwargs.pop(&#34;partner&#34;, None)
+        type = kwargs.pop(&#34;type&#34;, None)
+
+        super().__init__(start, duration, **kwargs)
+
+        if partner and not isinstance(partner, str):
+            raise TypeError(&#34;partner must be a string&#34;)
+
+        if type and not isinstance(type, str):
+            raise TypeError(&#34;type must be a string&#34;)
+        if type and type not in Tennis.tennis_type_set:
+            raise ValueError(&#34;invalid tennis type&#34;)
+
+        self.partner = partner
+        self.type = type</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="py_athletics.src.activity.activity.Activity" href="#py_athletics.src.activity.activity.Activity">Activity</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="py_athletics.src.activity.activity.Tennis.tennis_type_set"><code class="name">var <span class="ident">tennis_type_set</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="py_athletics.src.activity.activity.Activity" href="#py_athletics.src.activity.activity.Activity">Activity</a></b></code>:
+<ul class="hlist">
+<li><code><a title="py_athletics.src.activity.activity.Activity.activity_dictionary" href="#py_athletics.src.activity.activity.Activity.activity_dictionary">activity_dictionary</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.garmin_activity_type" href="#py_athletics.src.activity.activity.Activity.garmin_activity_type">garmin_activity_type</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.subclass_names" href="#py_athletics.src.activity.activity.Activity.subclass_names">subclass_names</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.subclasses" href="#py_athletics.src.activity.activity.Activity.subclasses">subclasses</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.tally" href="#py_athletics.src.activity.activity.Activity.tally">tally</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="py_athletics.src.activity.activity.Walk"><code class="flex name class">
+<span>class <span class="ident">Walk</span></span>
+<span>(</span><span>start: datetime.datetime, duration: datetime.timedelta, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>py_athletics Walk Activity subclass.
+A Walk object may include all
+Activity attributes as well as distance, type, maximum_speed and
+average_speed attributes.
+Walk type is a string and can be one of
+'track', 'road' or 'treadmill'.
+The maximum_speed and average_speed
+attributes are expressed in minutes per mile.
+The type attribute is
+accepted but not yet used.</p>
+<p>Create a Walk Activity.
+This method requires start and duration
+arguments and will accept keyword arguments for all other Activity and
+Walk attributes.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Walk(Activity):
+    &#34;&#34;&#34;py_athletics Walk Activity subclass.  A Walk object may include all
+    Activity attributes as well as distance, type, maximum_speed and
+    average_speed attributes.  Walk type is a string and can be one of
+    &#39;track&#39;, &#39;road&#39; or &#39;treadmill&#39;.  The maximum_speed and average_speed
+    attributes are expressed in minutes per mile.  The type attribute is
+    accepted but not yet used.
+    &#34;&#34;&#34;
+
+    walk_type_set = {&#34;track&#34;, &#34;road&#34;, &#34;treadmill&#34;}
+
+    def __init__(
+        self, start: datetime.datetime, duration: datetime.timedelta, **kwargs
+    ):
+        &#34;&#34;&#34;Create a Walk Activity.  This method requires start and duration
+        arguments and will accept keyword arguments for all other Activity and
+        Walk attributes.
+        &#34;&#34;&#34;
+
+        # Copy distance, type, maximum_speed and average_speed
+        # from the argument dictionary and call Activity for handling.
+        # Process these arguments after the Activity initialization is
+        # complete.
+
+        distance = kwargs.pop(&#34;distance&#34;, None)
+        type = kwargs.pop(&#34;type&#34;, None)
+        maximum_speed = kwargs.pop(&#34;maximum_speed&#34;, None)
+        average_speed = kwargs.pop(&#34;average_speed&#34;, None)
+
+        super().__init__(start, duration, **kwargs)
+
+        if distance and not isinstance(distance, Decimal):
+            raise TypeError(&#34;distance must be a Decimal&#34;)
+        if distance and distance &lt;= 0:
+            raise ValueError(&#34;distance must be positive&#34;)
+
+        if type and not isinstance(type, str):
+            raise TypeError(&#34;type must be a string&#34;)
+        if type and type not in Walk.walk_type_set:
+            raise ValueError(&#34;invalid walk type&#34;)
+
+        if maximum_speed and not isinstance(maximum_speed, datetime.time):
+            raise TypeError(&#34;maximum speed must be time object&#34;)
+
+        if average_speed and not isinstance(average_speed, datetime.time):
+            raise TypeError(&#34;average  speed must be time object&#34;)
+
+        self.distance = distance
+        self.type = type
+        self.maximum_speed = maximum_speed
+        self.average_speed = average_speed
+
+    def __repr__(self):
+
+        # The Walk class adds distance, maximum_speed, and average_speed
+        # to the detail to be included in the __repr__string.  The method
+        # gets the common base string from the parent class and then adds
+        # the additional detail before the closing bracket.
+
+        super_class_str = super().__repr__()
+
+        # Transform None and 0 to &#34;--&#34; for optional fields.
+        # Since &#34;if x&#34; will not be true if x is None or x is 0, we
+        # can set the field to &#34;--&#34; then test on x and adjust.
+        # Speed measures are in time, representing minutes per to cover
+        # a mile
+
+        distance_token = &#34;--&#34;
+        if self.distance:
+            distance_token = self.distance
+
+        max_speed_token = &#34;--&#34;
+        if self.maximum_speed:
+            max_speed_token = self.maximum_speed.strftime(&#34;%M:%S&#34;)
+
+        avg_speed_token = &#34;--&#34;
+        if self.average_speed:
+            avg_speed_token = self.average_speed.strftime(&#34;%M:%S&#34;)
+
+        f_1 = f&#34;Distance (miles): {distance_token} &#34;
+        f_2 = f&#34;Max Speed (minutes/mile): {max_speed_token} &#34;
+        f_3 = f&#34;Avg Speed (minutes/mile): {avg_speed_token}&#34;
+
+        addendum_str = &#34; &#34; + f_1 + f_2 + f_3
+
+        return super_class_str[:-1] + addendum_str + super_class_str[-1:]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="py_athletics.src.activity.activity.Activity" href="#py_athletics.src.activity.activity.Activity">Activity</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="py_athletics.src.activity.activity.Walk.walk_type_set"><code class="name">var <span class="ident">walk_type_set</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="py_athletics.src.activity.activity.Activity" href="#py_athletics.src.activity.activity.Activity">Activity</a></b></code>:
+<ul class="hlist">
+<li><code><a title="py_athletics.src.activity.activity.Activity.activity_dictionary" href="#py_athletics.src.activity.activity.Activity.activity_dictionary">activity_dictionary</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.garmin_activity_type" href="#py_athletics.src.activity.activity.Activity.garmin_activity_type">garmin_activity_type</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.subclass_names" href="#py_athletics.src.activity.activity.Activity.subclass_names">subclass_names</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.subclasses" href="#py_athletics.src.activity.activity.Activity.subclasses">subclasses</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.tally" href="#py_athletics.src.activity.activity.Activity.tally">tally</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="py_athletics.src.activity.activity.Workout"><code class="flex name class">
+<span>class <span class="ident">Workout</span></span>
+<span>(</span><span>start: datetime.datetime, duration: datetime.timedelta, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>py_Athletics Workout Activity subclass.
+A Workout object may
+include all Activity attributes as well as type and trainer attributes.
+The type attribute is a string and can be either "personal_training" or
+"solo".
+The trainer attribute is a string.
+The type and trainer
+attributes are accepted but not yet used.</p>
+<p>Create a Workout Activity.
+This method requires start and duration
+arguments and will accept keyword arguments for all other Activity and
+Workout attributes.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Workout(Activity):
+    &#34;&#34;&#34;py_Athletics Workout Activity subclass.  A Workout object may
+    include all Activity attributes as well as type and trainer attributes.
+    The type attribute is a string and can be either &#34;personal_training&#34; or
+    &#34;solo&#34;.  The trainer attribute is a string.  The type and trainer
+    attributes are accepted but not yet used.
+    &#34;&#34;&#34;
+
+    workout_type_set = {&#34;personal_training&#34;, &#34;solo&#34;}
+
+    def __init__(
+        self, start: datetime.datetime, duration: datetime.timedelta, **kwargs
+    ):
+        &#34;&#34;&#34;Create a Workout Activity.  This method requires start and duration
+        arguments and will accept keyword arguments for all other Activity and
+        Workout attributes.&#34;&#34;&#34;
+
+        # Remove type and trainer from the argument dictionary and pass the
+        # remainder to Activity for handling.
+
+        trainer = kwargs.pop(&#34;trainer&#34;, None)
+        type = kwargs.pop(&#34;type&#34;, None)
+
+        super().__init__(start, duration, **kwargs)
+
+        if trainer and not isinstance(trainer, str):
+            raise TypeError(&#34;trainer must be a string&#34;)
+
+        if type and not isinstance(type, str):
+            raise TypeError(&#34;type must be a string&#34;)
+        if type and type not in Workout.workout_type_set:
+            raise ValueError(&#34;invalid workout type&#34;)
+
+        self.trainer = trainer
+        self.type = type</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="py_athletics.src.activity.activity.Activity" href="#py_athletics.src.activity.activity.Activity">Activity</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="py_athletics.src.activity.activity.Workout.workout_type_set"><code class="name">var <span class="ident">workout_type_set</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="py_athletics.src.activity.activity.Activity" href="#py_athletics.src.activity.activity.Activity">Activity</a></b></code>:
+<ul class="hlist">
+<li><code><a title="py_athletics.src.activity.activity.Activity.activity_dictionary" href="#py_athletics.src.activity.activity.Activity.activity_dictionary">activity_dictionary</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.garmin_activity_type" href="#py_athletics.src.activity.activity.Activity.garmin_activity_type">garmin_activity_type</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.subclass_names" href="#py_athletics.src.activity.activity.Activity.subclass_names">subclass_names</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.subclasses" href="#py_athletics.src.activity.activity.Activity.subclasses">subclasses</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.tally" href="#py_athletics.src.activity.activity.Activity.tally">tally</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="py_athletics.src.activity" href="index.html">py_athletics.src.activity</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="py_athletics.src.activity.activity.Activity" href="#py_athletics.src.activity.activity.Activity">Activity</a></code></h4>
+<ul class="">
+<li><code><a title="py_athletics.src.activity.activity.Activity.activity_dictionary" href="#py_athletics.src.activity.activity.Activity.activity_dictionary">activity_dictionary</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.garmin_activity_type" href="#py_athletics.src.activity.activity.Activity.garmin_activity_type">garmin_activity_type</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.subclass_names" href="#py_athletics.src.activity.activity.Activity.subclass_names">subclass_names</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.subclasses" href="#py_athletics.src.activity.activity.Activity.subclasses">subclasses</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.tally" href="#py_athletics.src.activity.activity.Activity.tally">tally</a></code></li>
+<li><code><a title="py_athletics.src.activity.activity.Activity.venue_type_set" href="#py_athletics.src.activity.activity.Activity.venue_type_set">venue_type_set</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="py_athletics.src.activity.activity.Cycle" href="#py_athletics.src.activity.activity.Cycle">Cycle</a></code></h4>
+<ul class="">
+<li><code><a title="py_athletics.src.activity.activity.Cycle.cycle_type_set" href="#py_athletics.src.activity.activity.Cycle.cycle_type_set">cycle_type_set</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="py_athletics.src.activity.activity.Run" href="#py_athletics.src.activity.activity.Run">Run</a></code></h4>
+<ul class="">
+<li><code><a title="py_athletics.src.activity.activity.Run.run_type_set" href="#py_athletics.src.activity.activity.Run.run_type_set">run_type_set</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="py_athletics.src.activity.activity.Tennis" href="#py_athletics.src.activity.activity.Tennis">Tennis</a></code></h4>
+<ul class="">
+<li><code><a title="py_athletics.src.activity.activity.Tennis.tennis_type_set" href="#py_athletics.src.activity.activity.Tennis.tennis_type_set">tennis_type_set</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="py_athletics.src.activity.activity.Walk" href="#py_athletics.src.activity.activity.Walk">Walk</a></code></h4>
+<ul class="">
+<li><code><a title="py_athletics.src.activity.activity.Walk.walk_type_set" href="#py_athletics.src.activity.activity.Walk.walk_type_set">walk_type_set</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="py_athletics.src.activity.activity.Workout" href="#py_athletics.src.activity.activity.Workout">Workout</a></code></h4>
+<ul class="">
+<li><code><a title="py_athletics.src.activity.activity.Workout.workout_type_set" href="#py_athletics.src.activity.activity.Workout.workout_type_set">workout_type_set</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
